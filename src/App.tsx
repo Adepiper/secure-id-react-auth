@@ -1,10 +1,13 @@
-import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
-import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
+import PageRoutes from './pages';
 
 function App() {
-	return <Signup />;
+	return (
+		<BrowserRouter>
+			<PageRoutes />
+		</BrowserRouter>
+	);
 }
 
 export default App;
