@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import Button from '../../shared/button/Button';
 import FormInput from '../../shared/form_input/FormInput';
 import styles from './Login.module.scss';
+import { FC } from 'react';
 
 type LoginInfo = {
 	email: string;
@@ -23,7 +24,7 @@ const initialState: LoginInfo = {
 	password: '',
 };
 
-const Login = () => {
+const Login: FC = () => {
 	const formMethods = useForm<LoginInfo>({
 		resolver: yupResolver(signInSchema),
 		defaultValues: initialState,

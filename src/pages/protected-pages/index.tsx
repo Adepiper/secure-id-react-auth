@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Dashboard from './dashboard/Dashboard';
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes: FC = () => {
 	const isAuth = false;
 
 	if (!isAuth) return <Navigate to={'/login'} />;

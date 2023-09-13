@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import Button from '../../shared/button/Button';
 import FormInput from '../../shared/form_input/FormInput';
 import styles from '../login/Login.module.scss';
+import { FC } from 'react';
 
 type SignupData = {
 	email: string;
@@ -32,7 +33,7 @@ const initialState: SignupData = {
 	lastname: '',
 };
 
-const Signup = () => {
+const Signup: FC = () => {
 	const formMethods = useForm<SignupData>({
 		resolver: yupResolver(signUpSchema),
 		defaultValues: initialState,
