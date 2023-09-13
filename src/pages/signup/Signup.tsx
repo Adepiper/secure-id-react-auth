@@ -3,42 +3,64 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import Button from '../../shared/button/Button';
 import FormInput from '../../shared/form_input/FormInput';
-import styles from './Login.module.scss';
+import styles from '../login/Login.module.scss';
 
-type LoginInfo = {
+type SignupData = {
 	email: string;
 	password: string;
+	firstname: string;
+	lastname: string;
 };
 
-const signInSchema: yup.ObjectSchema<LoginInfo> = yup.object({
+const signUpSchema: yup.ObjectSchema<SignupData> = yup.object({
 	email: yup.string().required('Required').email(`invalid email pattern`),
 	password: yup
 		.string()
 		.required('Required')
 		.min(7, 'Password length too short'),
+	firstname: yup
+		.string()
+		.required('Required')
+		.min(3, 'First name is required'),
+	lastname: yup.string().required('Required').min(3, 'Last name is required'),
 });
 
-const initialState: LoginInfo = {
+const initialState: SignupData = {
 	email: '',
 	password: '',
+	firstname: '',
+	lastname: '',
 };
 
-const Login = () => {
-	const formMethods = useForm<LoginInfo>({
-		resolver: yupResolver(signInSchema),
+const Signup = () => {
+	const formMethods = useForm<SignupData>({
+		resolver: yupResolver(signUpSchema),
 		defaultValues: initialState,
 	});
 
-	const onSubmitForm: SubmitHandler<LoginInfo> = (data) => {
+	const onSubmitForm: SubmitHandler<SignupData> = (data) => {
 		console.log(data);
 	};
-
 	return (
 		<section className={styles.signInContainer}>
 			<form
 				className={styles.form}
 				onSubmit={formMethods.handleSubmit(onSubmitForm)}
 			>
+				<FormInput
+					styles={styles.formGroup}
+					formMethods={formMethods}
+					type='text'
+					label='First name'
+					inputName='firstname'
+				/>
+				<FormInput
+					styles={styles.formGroup}
+					formMethods={formMethods}
+					type='text'
+					label='Last name'
+					inputName='lastname'
+				/>
 				<FormInput
 					styles={styles.formGroup}
 					formMethods={formMethods}
@@ -53,7 +75,8 @@ const Login = () => {
 					label='Password'
 					inputName='password'
 				/>
-				<Button text='Sign in' className={styles.button} />
+
+				<Button text='Sign up' className={styles.button} />
 				{/* <p>
 					Not Registered? &nbsp;{' '}
 					<Link to={`/${ONBOARDING}`}>Sign Up now</Link>
@@ -63,4 +86,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Signup;
