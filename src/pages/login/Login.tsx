@@ -1,12 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import * as yup from 'yup';
+import useAuth from '../../hooks/useAuth';
 import Button from '../../shared/button/Button';
 import FormInput from '../../shared/form_input/FormInput';
 import styles from './Login.module.scss';
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
 
 export type LoginInfo = {
 	email: string;

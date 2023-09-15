@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { SignupData } from '../../pages/signup/Signup';
 
-const initialState: { users: SignupData[] } = {
+const initialState: { users: SignupData[]; email?: string } = {
 	users: [],
 };
 
@@ -11,6 +11,9 @@ const auth = createSlice({
 	reducers: {
 		setAuthentication(state, action: PayloadAction<SignupData>) {
 			state.users = [...state.users, action.payload];
+		},
+		setEmail(state, action: PayloadAction<string>) {
+			state.email = action.payload;
 		},
 		reset: () => initialState,
 	},

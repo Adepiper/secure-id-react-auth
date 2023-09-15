@@ -3,9 +3,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Dashboard from './dashboard/Dashboard';
 
 const ProtectedRoutes: FC = () => {
-	const isAuth = false;
+	const token = sessionStorage.getItem('secure-id-test-user');
 
-	if (!isAuth) return <Navigate to={'/login'} />;
+	if (!token) return <Navigate to={'/login'} />;
 
 	return (
 		<Routes>

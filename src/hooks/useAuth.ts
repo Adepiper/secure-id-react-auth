@@ -1,15 +1,16 @@
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { LoginInfo } from '../pages/login/Login';
 import { SignupData } from '../pages/signup/Signup';
 import { useAppDisPatch, useAppSelector } from '../store';
 import { authActions } from '../store/slices/authSlice';
-import toast from 'react-hot-toast';
 
 const useAuth = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDisPatch();
 
-	const { users } = useAppSelector((state) => state.auth);
+	const { users, email } = useAppSelector((state) => state.auth);
 
 	const loginUser = (data: LoginInfo) => {
 		const user = users.find((s) => s.email === data.email);
@@ -25,6 +26,7 @@ const useAuth = () => {
 		}
 
 		toast.success(`Welcome, ${user.firstname}`);
+		sessionStorage.setItem('secure-id-test-user', uuidv4());
 
 		navigate('/user/dashboard');
 	};
@@ -40,7 +42,43 @@ const useAuth = () => {
 		navigate('/login');
 	};
 
-	return { loginUser, signUpUser };
+	const validateEmail = (data: { email: string }) => {
+		const user = users.find((s) => s.email === data.email);
+
+		if (!user) {
+			toast.error('User does not exist, Please sign up');
+			return;
+		}
+		dispatch(authActions.setEmail(data.email));
+
+		navigate('/forgot/password');
+	};
+
+	const changePassword = (data: { password: string }) => {
+		const userIndex = users.findIndex((s) => s.email === email);
+		const user = users[userIndex];
+
+		if (!user) {
+			toast.error('User does not exist, Please sign up');
+			return;
+		}
+
+		user.password = data.password;
+		users[userIndex] = user;
+		dispatch(authActions.setEmail(''));
+
+		toast.success('Password successfully updated');
+
+		navigate('/login');
+	};
+
+	const logout = () => {
+		sessionStorage.removeItem('secure-id-test-user');
+		toast.success('You have logged out successfully');
+		navigate('/login');
+	};
+
+	return { loginUser, signUpUser, validateEmail, changePassword, logout };
 };
 
 export default useAuth;
