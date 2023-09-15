@@ -9,12 +9,23 @@ const auth = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		setAuthentication(state, action: PayloadAction<SignupData>) {
-			state.users = [...state.users, action.payload];
+		setUser(state, action: PayloadAction<SignupData>) {
+			const users = state.users;
+			const userIndex = users.findIndex(
+				(data) => data.email === action.payload.email
+			);
+
+			if (userIndex > -1) {
+				users[userIndex] = action.payload;
+				state.users = users;
+			} else {
+				state.users = [...state.users, action.payload];
+			}
 		},
 		setEmail(state, action: PayloadAction<string>) {
 			state.email = action.payload;
 		},
+
 		reset: () => initialState,
 	},
 });

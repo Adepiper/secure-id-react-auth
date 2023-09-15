@@ -46,12 +46,12 @@ const EnterNewPassword: FC = () => {
 				<FormInput
 					styles={styles.formGroup}
 					formMethods={formMethods}
-					type='email'
-					label='Email'
-					inputName='email'
+					type='password'
+					label='Enter new password'
+					inputName='password'
 				/>
 
-				<Button text='Verify Email' className={styles.button} />
+				<Button text='Update password' className={styles.button} />
 
 				<div className={styles.widgets}>
 					<Link to={`/forgot`}>Back to Login</Link>

@@ -43,7 +43,7 @@ const VerifyEmail: FC = () => {
 				<Button text='Verify Email' className={styles.button} />
 
 				<div className={styles.widgets}>
-					<Link to={`/forgot`}>Back to Login</Link>
+					<Link to={`/login`}>Back to Login</Link>
 				</div>
 			</form>
 		</section>

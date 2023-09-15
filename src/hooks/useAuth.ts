@@ -38,7 +38,7 @@ const useAuth = () => {
 			return;
 		}
 
-		dispatch(authActions.setAuthentication(data));
+		dispatch(authActions.setUser(data));
 		navigate('/login');
 	};
 
@@ -55,16 +55,19 @@ const useAuth = () => {
 	};
 
 	const changePassword = (data: { password: string }) => {
-		const userIndex = users.findIndex((s) => s.email === email);
-		const user = users[userIndex];
+		const copiedUsers = [...users];
+		const userIndex = copiedUsers.findIndex((s) => s.email === email);
+		const user = copiedUsers[userIndex];
 
 		if (!user) {
 			toast.error('User does not exist, Please sign up');
 			return;
 		}
 
-		user.password = data.password;
-		users[userIndex] = user;
+		const updateUser = { ...user, password: data.password };
+
+		dispatch(authActions.setUser(updateUser));
+
 		dispatch(authActions.setEmail(''));
 
 		toast.success('Password successfully updated');
