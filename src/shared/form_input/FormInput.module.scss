@@ -1,70 +1,66 @@
 .errors {
-  position: relative;
-  input {
-    border: 1px solid rgba(255, 0, 0, 0.782);
-  }
-  &.singleBorder {
-    input {
-      border: none;
-      border-bottom: 1px solid rgba(255, 0, 0, 0.782);
-    }
-  }
-  span {
-    position: absolute;
-    right: 0;
-    font-size: 11px;
-    text-transform: capitalize;
-    color: rgba(255, 0, 0, 0.73);
-  }
+	position: relative;
+	input {
+		border: 1px solid rgba(255, 0, 0, 0.782) !important;
+	}
+	&.singleBorder {
+		input {
+			border: none;
+			border-bottom: 1px solid rgba(255, 0, 0, 0.782) !important;
+		}
+	}
+	span {
+		position: absolute;
+		right: 0;
+		font-size: 11px;
+		text-transform: capitalize;
+		color: rgba(255, 0, 0, 0.73);
+	}
 }
 
 .formGroup {
-  width: 100%;
-  position: relative;
-  input {
-    padding-right: 30px !important;
-  }
+	width: 100%;
+	position: relative;
 
-  & > i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10px;
-  }
+	& > i {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 10px;
+	}
 }
 
-.formInput {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #dce3ec;
+// .formInput {
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: flex-start;
+// 	align-items: flex-start;
+// 	margin-bottom: 15px;
+// 	border-bottom: 2px solid #dce3ec;
 
-  label {
-    color: #9dabbe;
-    font-family: "Sora";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12.1073px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.0647122px;
-    margin-bottom: 7px;
-  }
+// 	label {
+// 		color: #9dabbe;
+// 		font-style: normal;
+// 		font-weight: 600;
+// 		font-size: 12.1073px;
+// 		line-height: 18px;
+// 		display: flex;
+// 		align-items: center;
+// 		letter-spacing: 0.0647122px;
+// 		margin-bottom: 7px;
+// 	}
 
-  input {
-    width: 100%;
-    height: 40px;
-    font-style: normal;
-    font-size: 12.1073px;
-    font-weight: 400;
-    background-color: transparent;
+// 	input {
+// 		width: 100%;
+// 		height: 40px;
+// 		font-style: normal;
+// 		font-size: 12.1073px;
+// 		font-weight: 400;
+// 		background-color: transparent;
 
-    &::placeholder {
-      color: #9dabbe;
-      font-size: 11px;
-    }
-  }
-}
+// 		&::placeholder {
+// 			color: #9dabbe;
+// 			font-size: 11px;
+// 		}
+// 	}
+// }

@@ -5,6 +5,7 @@ import Button from '../../shared/button/Button';
 import FormInput from '../../shared/form_input/FormInput';
 import styles from './Login.module.scss';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 type LoginInfo = {
 	email: string;
@@ -40,6 +41,7 @@ const Login: FC = () => {
 				className={styles.form}
 				onSubmit={formMethods.handleSubmit(onSubmitForm)}
 			>
+				<h3 className={styles.heading}>Login </h3>
 				<FormInput
 					styles={styles.formGroup}
 					formMethods={formMethods}
@@ -55,10 +57,15 @@ const Login: FC = () => {
 					inputName='password'
 				/>
 				<Button text='Sign in' className={styles.button} />
-				{/* <p>
-					Not Registered? &nbsp;{' '}
-					<Link to={`/${ONBOARDING}`}>Sign Up now</Link>
-				</p> */}
+
+				<div className={styles.widgets}>
+					<Link to={`/forgot`}>Forgot password</Link>
+
+					<span>
+						Not Registered? &nbsp;
+						<Link to={`/signup`}>Sign Up now</Link>
+					</span>
+				</div>
 			</form>
 		</section>
 	);

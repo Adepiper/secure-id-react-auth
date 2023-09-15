@@ -4,24 +4,20 @@
 	margin: 0 auto;
 	padding: 0 30px;
 	box-sizing: border-box;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 }
 .form {
-	margin: 0 auto 50px;
+	width: 100%;
 }
 
 .heading {
-	text-align: left;
-	margin: 30px 0;
-	color: #333d4d;
-}
-
-.heading h3 {
-	font-weight: 700;
-	font-size: 24px;
-}
-
-.heading p {
-	font-size: 18px;
+	text-align: center;
+	margin-bottom: 15px;
+	font-size: 28px;
 }
 
 .form .formGroup {
@@ -30,29 +26,22 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	margin-bottom: 15px;
+	width: 100%;
 }
 .formGroup label {
-	font-family: 'Sora';
-	font-style: normal;
 	font-weight: 600;
-	font-size: 11.1073px;
-	line-height: 18px;
-	display: flex;
-	align-items: center;
-	letter-spacing: 0.0647122px;
 	color: #484848;
 	margin-bottom: 7px;
 }
 .formGroup input {
 	width: 100%;
 	height: 40px;
-	background: #f4f4f4;
 	border-radius: 9px;
-	padding-left: 15px;
-	font-family: 'Sora';
 	font-style: normal;
 	font-size: 12.1073px;
 	font-weight: 400;
+	border: 1px solid rgba(0, 0, 0, 0.419);
+	padding: 0 5px;
 }
 
 .button {
@@ -62,69 +51,29 @@
 	background: #489aee;
 	border-radius: 9px;
 	outline: none;
-	font-family: 'Sora';
+	cursor: pointer;
+
 	font-style: normal;
 	font-weight: 600;
 	font-size: 12.1073px;
 	line-height: 18px;
 	letter-spacing: 0.0647122px;
 	color: #ffffff;
-	cursor: pointer;
-	margin-top: 10px;
+	margin-top: 20px;
+}
+
+.widgets {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0 15px;
-}
-
-.form p {
-	width: 100%;
-	font-family: 'Sora';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 11.1073px;
-	line-height: 18px;
-	letter-spacing: 0.0647122px;
-	color: #c5c9cc;
-	margin-top: 30px;
-}
-.form p a {
-	color: #489aee;
-	text-decoration: none;
-}
-
-.formInput {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	margin-bottom: 15px;
-	border-bottom: 2px solid #dce3ec;
-
-	label {
-		color: #9dabbe;
-		font-family: 'Sora';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 12.1073px;
-		line-height: 18px;
-		display: flex;
-		align-items: center;
-		letter-spacing: 0.0647122px;
-		margin-bottom: 7px;
+	justify-content: space-between;
+	margin-top: 15px;
+	* {
+		font-size: 13px;
 	}
-
-	input {
-		width: 100%;
-		height: 40px;
-		font-style: normal;
-		font-size: 12.1073px;
-		font-weight: 400;
-		background-color: transparent;
-
-		&::placeholder {
-			color: #9dabbe;
-			font-size: 11px;
+	a {
+		cursor: pointer;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
 		}
 	}
 }
