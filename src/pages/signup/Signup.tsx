@@ -6,8 +6,9 @@ import FormInput from '../../shared/form_input/FormInput';
 import styles from '../login/Login.module.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
-type SignupData = {
+export type SignupData = {
 	email: string;
 	password: string;
 	firstname: string;
@@ -35,13 +36,15 @@ const initialState: SignupData = {
 };
 
 const Signup: FC = () => {
+	const { signUpUser } = useAuth();
+
 	const formMethods = useForm<SignupData>({
 		resolver: yupResolver(signUpSchema),
 		defaultValues: initialState,
 	});
 
 	const onSubmitForm: SubmitHandler<SignupData> = (data) => {
-		console.log(data);
+		signUpUser(data);
 	};
 	return (
 		<section className={styles.signInContainer}>

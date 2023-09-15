@@ -6,8 +6,9 @@ import FormInput from '../../shared/form_input/FormInput';
 import styles from './Login.module.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
-type LoginInfo = {
+export type LoginInfo = {
 	email: string;
 	password: string;
 };
@@ -31,8 +32,10 @@ const Login: FC = () => {
 		defaultValues: initialState,
 	});
 
+	const { loginUser } = useAuth();
+
 	const onSubmitForm: SubmitHandler<LoginInfo> = (data) => {
-		console.log(data);
+		loginUser(data);
 	};
 
 	return (
